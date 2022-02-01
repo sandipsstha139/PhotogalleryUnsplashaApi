@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+H1 {
+  margin-top: 15px;
+  font-family: "Sedgwick Ave Display", cursive;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template: 100px auto 100px / auto 200px auto;
+  grid-template-areas:
+    ". title ."
+    "images images images"
+    ". buttons .";
+  gap: 1em;
+  background-color: #e0dac2;
+  opacity: 0.8;
+  background-image: url(https://images.unsplash.com/photo-1565452171067-f2b1384f958d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80);
+  background-blend-mode: multiply;
+}
+
+h1,
+form {
+  grid-area: title;
+}
+
+.second {
+  align-self: start;
+}
+
+h1 {
+  align-self: start;
+}
+
+form {
+  align-self: end;
+}
+
+.images {
+  max-width: 90%;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-area: images;
+  justify-self: center;
+  gap: 1em;
+  visibility: hidden;
+}
+
+img {
+  border: 3px black;
+  transition: transform cubic-bezier(1, 0, 0, 1) 0.2s;
+  border-radius: 10px;
+  align-self: end;
+}
+
+img:hover {
+  cursor: pointer;
+  transform: scale(1.06);
+  transition: 0.3s;
+  filter: brightness(80%);
+}
+
+button {
+  grid-area: buttons;
+  width: 100px;
+  padding: 0.5em;
+  align-self: start;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#next {
+  justify-self: end;
+}
+
+#prev {
+  justify-self: start;
+}
+
+@media screen and (max-width: 800px) {
+  .images {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .second {
+    align-self: end;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .images {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 400px) {
+  .images {
+    grid-template-columns: 1fr;
+  }
+}
